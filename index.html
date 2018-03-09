@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head> <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4ya46Yoag-iGeJb5SUwZ2q1Irx0UjnU&callback=initMap">
+    </script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title><head><script src="jquery-3.2.1.js"></script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+ <div id="map"></div>
+<script type="text/javascript">
+var json;
+  $.get("https://josedaniel-fa6f9.firebaseio.com/.json",function (ar) {
+    //console.log(ar.length);
+   json=ar;
+  var id=1;
+    for (var i in ar) {
+       // console.log("v "+ar[i].latitud+ "  "+ar[i].longitud+"  "+ ar[i].nombre);
+var myLatLng = {lat:7.6285495999999995, lng:-74.1371145};
+var n=4.6285495999999;
+//ar[i].latitud
+
+myLatLng.lat=parseFloat(ar[i].latitud);
+ console.log("myLatLng.lat "+myLatLng.lat+ "  i "+i+" " +ar[i].latitud);
+if(id==1){var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });}
+id=id+1;
+       var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+ //initMap(ar[i].latitud) ;
+
+
+    } // body...
+  });
+/*
+var countDownDate = new Date("Mar 9, 2018 9:17:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+*/
+
+
+
+
+
+/**
+  function initMap(l) {//geoloc(); navigator.geolocation.getCurrentPosition(viewMap);
+  alert(88888888);
+        var myLatLng = {lat:4.6285495999999995, lng:-74.1371145};
+ 
+//myLatLng.lat=l;
+console.log("l "+ l);
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+var d =0;
+      for(var i=0;i<12;i=i+1){myLatLng.lat=l; d=(d+0.0001)*1; var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });}
+      }
+*/
+  </script> <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4ya46Yoag-iGeJb5SUwZ2q1Irx0UjnU&callback=initMap">
+    </script>
+
+</body>
+</html>
