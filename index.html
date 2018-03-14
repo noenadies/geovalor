@@ -24,7 +24,7 @@
  <div id="map"></div>
 <script type="text/javascript">
 var json;
-  $.get("https://josedaniel-fa6f9.firebaseio.com/.json",function (ar) {
+  $.get("https://porbarfirebase.firebaseio.com/.json",function (ar) {
     //console.log(ar.length);
    json=ar;
   var id=1;
@@ -35,7 +35,8 @@ var n=4.6285495999999;
 //ar[i].latitud
 
 myLatLng.lat=parseFloat(ar[i].latitud);
- console.log("myLatLng.lat "+myLatLng.lat+ "  i "+i+" " +ar[i].latitud);
+myLatLng.lng=parseFloat(ar[i].logitud);
+ console.log("myLatLng.lat "+myLatLng.lat+ "  i "+i+" " +ar[i].logitud);
 if(id==1){var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: myLatLng
